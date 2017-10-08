@@ -91,3 +91,4 @@ For the task of this project and I see the following ways to improve:
 1. Use more layers in Decoder and Encoder.
 2. Use bigger dataset for example using data augmentation.
 3. Try to reduce learning rate because validation loss curve is not optimal.
+4. Try different optimizers for example Nadam.
