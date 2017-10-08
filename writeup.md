@@ -74,7 +74,7 @@ def decoder_block(small_ip_layer, large_ip_layer, filters):
 Because our task is computationally demanding and we have big training set then it is more rational to use GPU for training.
 I already have a [configured](https://medium.com/google-cloud/running-jupyter-notebooks-on-gpu-on-google-cloud-d44f57d22dbd) Compute Engine with NVIDIA Tesla K80 in Google Cloud so I decided to use it.  
 After some time playing with hyperparameters I stopped at the following:  
-```
+```python
 learning_rate = 0.01 # Usually good start point
 batch_size = 128 # Bigger - better, but there is a memory limitation 
 num_epochs = 20 # It seems that the model stops to learn after this value
