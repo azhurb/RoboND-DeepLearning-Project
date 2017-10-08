@@ -75,9 +75,9 @@ Because our task is computationally demanding and we have big training set then 
 I already have a [configured](https://medium.com/google-cloud/running-jupyter-notebooks-on-gpu-on-google-cloud-d44f57d22dbd) Compute Engine with NVIDIA Tesla K80 in Google Cloud so I decided to use it.  
 After some time playing with hyperparameters I stopped at the following:  
 ```
-learning_rate = 0.01
-batch_size = 128
-num_epochs = 20
+learning_rate = 0.01 # Usually good start point
+batch_size = 128 # Bigger - better, but there is a memory limitation 
+num_epochs = 20 # It seems that the model stops to learn after this value
 ```
 
 ![Training curves][train]  
@@ -92,3 +92,7 @@ For the task of this project and I see the following ways to improve:
 2. Use bigger dataset for example using data augmentation.
 3. Try to reduce learning rate because validation loss curve is not optimal.
 4. Try different optimizers for example Nadam.
+
+## Conclusion
+
+The model is trained only to identify the human in red clothes. If we need to change the target object to a car or a dog, we need to collect and pass additional data with such object classes to the model.
