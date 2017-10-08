@@ -18,7 +18,7 @@ A simple data set was provided in the project. Also given instructions how to co
 All angles of hero:
 ![All angles of hero][sim_zigzag]
 
-Hero in the dense crowd:
+The hero in the dense crowd:
 ![Hero data in the dense crowd][sim_crowd]
 
 ## Network Architecture
@@ -48,7 +48,7 @@ def encoder_block(input_layer, filters, strides):
 
 ### 1x1 Convolution
 
-The output of a convolutional layer is a 4-dimensional tensor. But if we want to use fully connected layer we need to flatten it into a 2-dimensional tensor. This leads to a loss of spatial information, because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution.
+The output of a convolutional layer is a 4-dimensional tensor. But if we want to use fully connected layer we need to flatten it into a 2-dimensional tensor. This leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution.
 
 ### Decoder
 
@@ -70,8 +70,24 @@ def decoder_block(small_ip_layer, large_ip_layer, filters):
 ```
 
 ## Training
-TODO
-Final score is `0.42`.
+
+Because our task is computationally demanding and we have big training set then it is more rational to use GPU for training.
+I already have a [configured](https://medium.com/google-cloud/running-jupyter-notebooks-on-gpu-on-google-cloud-d44f57d22dbd) Compute Engine with NVIDIA Tesla K80 in Google Cloud so I decided to use it.  
+After some time playing with hyperparameters I stopped at the following:  
+```
+learning_rate = 0.01
+batch_size = 128
+num_epochs = 20
+```
+
+![Training curves][train]  
+
+These hyperparameters and the network architecture helped to achieve the final score `0.42`, which is enough for submission.
 
 ## Future Enhancements
-TODO
+
+As usual in Deep Learning there are many ways to improve the results.  
+For the task of this project and I see the following ways to improve:  
+1. Use more layers in Decoder and Encoder.
+2. Use bigger dataset for example using data augmentation.
+3. Try to reduce learning rate because validation loss curve is not optimal.
