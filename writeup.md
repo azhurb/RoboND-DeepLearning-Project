@@ -35,7 +35,9 @@ The model will consist from:
 ### Encoder
 
 The Encoder part extracts features from the image. A deeper encoder, more complex shapes that it can extract.
-We will use Separable Convolutions. This is a technique that reduces the number of parameters needed, thus increasing efficiency for the encoder network.
+We will use Separable Convolutions. This is a technique that reduces the number of parameters needed, thus increasing efficiency for the encoder network.  
+The number of filters/feature maps for a given convolutional layer tends to be chosen based on empirical performance rather on theoretical justifications.  
+It is usually more efficient to build a network deeper than wider. Therefore, if the chosen values of the number of filters did not help to achieve the desired result, I would add another layer.
 
 ```python
 def encoder_block(input_layer, filters, strides):
@@ -48,11 +50,11 @@ def encoder_block(input_layer, filters, strides):
 
 ### 1x1 Convolution
 
-The output of a convolutional layer is a 4-dimensional tensor. But if we want to use fully connected layer we need to flatten it into a 2-dimensional tensor. This leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution.
+At the output of the encoder, we have a 4-dimensional tensor. Now we need to extract features from it. We can not use fully connected layer because the output of the convolutional layer should be flattened into a 2-dimensional tensor, this leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution. 1x1 convolution helped in reducing the dimensionality of the layer. Also, replacement of fully-connected layers with convolutional layers presents an added advantage that during testing we can feed images of any size into our trained network.
 
 ### Decoder
 
-The Decoder part upscale Encoder output back to the input image dimensions. In addition, each layer of the Decoder contains a skip connection, to the corresponding encoder layer. Skip connection connects the output of one layer to the input of the other. As a result, the network is able to make more precise segmentation decision.
+The Decoder part upscale Encoder output back to the input image dimensions. However, when we decode the output of the image back to the original image size some information can be lost. Skip connection is a way of retaining the information easily. In our case, each layer of the Decoder contains a skip connection to the corresponding encoder layer. Skip connection connects the output of one layer to the input of the other. As a result, the network is able to make more precise segmentation decision.
 
 ```python
 def decoder_block(small_ip_layer, large_ip_layer, filters):
