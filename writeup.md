@@ -1,6 +1,7 @@
 # Project: Follow Me
 
 [fcn]: ./images/fcn.png
+[fcn_conv]: ./images/fcn_conv.png
 [sim_crowd]: ./images/sim_crowd.png
 [sim_zigzag]: ./images/sim_zigzag.png
 [train]: ./images/train.png
@@ -30,7 +31,7 @@ The model will consist from:
 * Two decoder layers
 * Skip connections between the encoder and decoder layers
 
-![Network Architecture][fcn]
+![Network Architecture][fcn_conv]
 
 ### Encoder
 
