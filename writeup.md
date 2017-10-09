@@ -81,7 +81,11 @@ After some time playing with hyperparameters I stopped at the following:
 learning_rate = 0.01 # Usually good start point
 batch_size = 128 # Bigger - better, but there is a memory limitation 
 num_epochs = 20 # It seems that the model stops to learn after this value
-```
+```  
+Usually hyperparameters are chosen empirically and then adjusted depending on the results.
+The number of epochs chosen so as to ensure that the training will no longer be produced.  
+The size of the batch is the highest possible for this server to fit the memory.  
+The learning rate was initially chosen as 0.01 and he showed himself well for achieving the goal.  
 
 ![Training curves][train]  
 
