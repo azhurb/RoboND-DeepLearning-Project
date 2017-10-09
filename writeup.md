@@ -51,7 +51,7 @@ def encoder_block(input_layer, filters, strides):
 
 ### 1x1 Convolution
 
-At the output of the encoder, we have a 4-dimensional tensor. Now we need to extract features from it. We can not use fully connected layer because the output of the convolutional layer should be flattened into a 2-dimensional tensor, this leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution. 1x1 convolution helped in reducing the dimensionality of the layer. They are also very fast. Basically they are a cheap way to make your net deeper, without adding too much computation. Also, replacement of fully-connected layers with convolutional layers presents an added advantage that during testing we can feed images of any size into our trained network. 
+At the output of the encoder, we have a 4-dimensional tensor. Now we need to extract features from it. We can not use fully connected layer because the output of the convolutional layer should be flattened into a 2-dimensional tensor, this leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution. 1x1 convolution helped in reducing the dimensionality of the layer. They are also very fast. Basically they are a cheap way to make the net deeper, without adding too much computation. Also, replacement of fully-connected layers with convolutional layers presents an added advantage that during testing we can feed images of any size into our trained network. 
 
 ### Decoder
 
