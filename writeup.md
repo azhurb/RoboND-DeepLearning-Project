@@ -51,7 +51,7 @@ def encoder_block(input_layer, filters, strides):
 
 ### 1x1 Convolution
 
-At the output of the encoder, we have a 4-dimensional tensor. Now we need to extract features from it. We can not use fully connected layer because the output of the convolutional layer should be flattened into a 2-dimensional tensor, this leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution. 1x1 convolution helped in reducing the dimensionality of the layer. They are also very fast. Basically they are a cheap way to make the net deeper, without adding too much computation. Also, replacement of fully-connected layers with convolutional layers presents an added advantage that during testing we can feed images of any size into our trained network. 
+At the output of the encoder, we have a 4-dimensional tensor. Now we need to extract features from it. We can not use fully connected layer because the output of the convolutional layer should be flattened into a 2-dimensional tensor, this leads to a loss of spatial information because no information about the location of the pixels is preserved. We can avoid that by using 1x1 convolution. 1x1 convolution helped in reducing the dimensionality of the layer. They are also very fast. Basically, they are a cheap way to make the net deeper, without adding too much computation. Also, replacement of fully-connected layers with convolutional layers presents an added advantage that during testing we can feed images of any size into our trained network. 
 
 ### Decoder
 
@@ -82,7 +82,7 @@ learning_rate = 0.01 # Usually good start point
 batch_size = 128 # Bigger - better, but there is a memory limitation 
 num_epochs = 20 # It seems that the model stops to learn after this value
 ```  
-Usually hyperparameters are chosen empirically and then adjusted depending on the results.
+Usually, hyperparameters are chosen empirically and then adjusted depending on the results.
 The number of epochs chosen so as to ensure that the training will no longer be produced.  
 The size of the batch is the highest possible for this server to fit the memory.  
 The learning rate was initially chosen as 0.01 and he showed himself well for achieving the goal.  
@@ -96,7 +96,7 @@ These hyperparameters and the network architecture helped to achieve the final s
 As usual in Deep Learning there are many ways to improve the results.  
 For the task of this project and I see the following ways to improve:  
 1. Use more layers in Decoder and Encoder.
-2. Use bigger dataset for example using data augmentation.
+2. Use bigger dataset, for example, using data augmentation.
 3. Try to reduce learning rate because validation loss curve is not optimal.
 4. Try different optimizers for example Nadam.
 
