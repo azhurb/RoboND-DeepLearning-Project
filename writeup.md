@@ -94,8 +94,8 @@ These hyperparameters and the network architecture helped to achieve the final s
 ## Future Enhancements
 
 As usual in Deep Learning there are many ways to improve the results.  
-For the task of this project and I see the following ways to improve:  
-1. Use more layers in Decoder and Encoder.
+For the task of this project I see the following ways to improve:  
+1. Use more layers in Decoder and Encoder, make them deeper.
 2. Use bigger dataset, for example, using data augmentation.
 3. Try to reduce learning rate because validation loss curve is not optimal.
 4. Try different optimizers for example Nadam.
